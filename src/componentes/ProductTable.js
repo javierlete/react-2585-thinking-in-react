@@ -15,7 +15,7 @@ export default function ProductTable({ products, filterText, inStockOnly }) {
             <tbody>
                 {products
                     .filter(product =>
-                        product.name.includes(filterText) &&
+                        product.name.toLowerCase().includes(filterText.toLowerCase()) &&
                         (inStockOnly ? product.stocked : true))
                     .map(product => (<>
                         {category != product.category &&
