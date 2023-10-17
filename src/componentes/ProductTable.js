@@ -18,7 +18,7 @@ export default function ProductTable({ products, filterText, inStockOnly }) {
                         product.name.toLowerCase().includes(filterText.toLowerCase()) &&
                         (inStockOnly ? product.stocked : true))
                     .map(product => (<>
-                        {category != product.category &&
+                        {category !== product.category &&
                             <ProductCategoryRow category={category = product.category} />}
                         <ProductRow key={product.name} product={product} />
                     </>
