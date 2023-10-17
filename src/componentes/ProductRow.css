@@ -1,3 +1,7 @@
 .precio {
     text-align: right;
 }
+
+.sinstock {
+    color: red;
+}

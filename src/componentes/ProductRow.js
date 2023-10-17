@@ -3,7 +3,7 @@ import './ProductRow.css';
 export default function ProductRow({ product }) {
     return (
         <tr>
-            <td>
+            <td className={product.stocked ? "" : "sinstock"}>
                 {product.name}
             </td>
             <td className="precio">
