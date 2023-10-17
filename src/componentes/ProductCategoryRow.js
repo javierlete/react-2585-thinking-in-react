@@ -1,7 +1,9 @@
+import './ProductCategoryRow.css';
+
 export default function ProductCategoryRow({ category }) {
     return (
         <tr>
-            <td colspan="2">
+            <td class="categoria" colspan="2">
                 {category}
             </td>
         </tr>
