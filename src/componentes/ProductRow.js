@@ -7,7 +7,7 @@ export default function ProductRow({ product }) {
                 {product.name}
             </td>
             <td className="precio">
-                {product.price} €
+                {product.price}
             </td>
         </tr>
     );
