@@ -1,7 +1,9 @@
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
-export default function ProductTable() {
+export default function ProductTable({ products }) {
+    let category = null;
+
     return (
         <table>
             <thead>
@@ -11,13 +13,12 @@ export default function ProductTable() {
                 </tr>
             </thead>
             <tbody>
-                <ProductCategoryRow category="Fruits" />
-                <ProductRow product={{ name: "Apple", price: 1.0 }} />
-                <ProductRow product={{ name: "Orange", price: 0.5 }} />
-                <ProductCategoryRow category="Vegetables" />
-                <ProductRow product={{ name: "Garlic", price: 1.0 }} />
-                <ProductRow product={{ name: "Tomato", price: 0.5 }} />
-                <ProductRow product={{ name: "Onion", price: 0.3 }} />
+                {products.map(product => (<>
+                    {category != product.category && 
+                        <ProductCategoryRow category={category = product.category} />}
+                    <ProductRow key={product.name} product={product} />
+                </>
+                ))}
             </tbody>
         </table>
     );
