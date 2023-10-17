@@ -11,13 +11,13 @@ export default function ProductTable() {
                 </tr>
             </thead>
             <tbody>
-                <ProductCategoryRow />
-                <ProductRow />
-                <ProductRow />
-                <ProductCategoryRow />
-                <ProductRow />
-                <ProductRow />
-                <ProductRow />
+                <ProductCategoryRow category="Fruits" />
+                <ProductRow product={{ name: "Apple", price: 1.0 }} />
+                <ProductRow product={{ name: "Orange", price: 0.5 }} />
+                <ProductCategoryRow category="Vegetables" />
+                <ProductRow product={{ name: "Garlic", price: 1.0 }} />
+                <ProductRow product={{ name: "Tomato", price: 0.5 }} />
+                <ProductRow product={{ name: "Onion", price: 0.3 }} />
             </tbody>
         </table>
     );

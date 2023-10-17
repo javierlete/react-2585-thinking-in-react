@@ -1,13 +1,13 @@
 import './ProductRow.css';
 
-export default function ProductRow() {
+export default function ProductRow({ product }) {
     return (
         <tr>
             <td>
-                Producto
+                {product.name}
             </td>
             <td className="precio">
-                {Math.round(Math.random() * 1000)} €
+                {product.price} €
             </td>
         </tr>
     );

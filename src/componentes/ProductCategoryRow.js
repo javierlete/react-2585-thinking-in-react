@@ -1,8 +1,8 @@
-export default function ProductCategoryRow() {
+export default function ProductCategoryRow({ category }) {
     return (
         <tr>
             <td colspan="2">
-                Categoría
+                {category}
             </td>
         </tr>
     );
