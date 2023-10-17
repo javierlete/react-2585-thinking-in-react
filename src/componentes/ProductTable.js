@@ -1,7 +1,7 @@
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
-export default function ProductTable({ products }) {
+export default function ProductTable({ products, filterText, inStockOnly }) {
     let category = null;
 
     return (
@@ -13,12 +13,16 @@ export default function ProductTable({ products }) {
                 </tr>
             </thead>
             <tbody>
-                {products.map(product => (<>
-                    {category != product.category && 
-                        <ProductCategoryRow category={category = product.category} />}
-                    <ProductRow key={product.name} product={product} />
-                </>
-                ))}
+                {products
+                    .filter(product =>
+                        product.name.includes(filterText) &&
+                        (inStockOnly ? product.stocked : true))
+                    .map(product => (<>
+                        {category != product.category &&
+                            <ProductCategoryRow category={category = product.category} />}
+                        <ProductRow key={product.name} product={product} />
+                    </>
+                    ))}
             </tbody>
         </table>
     );
