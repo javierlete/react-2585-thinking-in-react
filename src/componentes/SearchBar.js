@@ -1,11 +1,15 @@
 export default function SearchBar() {
     return (
         <div>
-            <input />
-            <label>
-                <input type="checkbox" />
-                <span>Only show products in stock</span>
-            </label>
+            <div>
+                <input placeholder="Search..." />
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" />
+                    <span>Only show products in stock</span>
+                </label>
+            </div>
         </div>
     );
 }
