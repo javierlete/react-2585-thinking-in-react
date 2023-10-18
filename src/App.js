@@ -1,9 +1,26 @@
+import axios from 'axios';
 import FilterableProductTable from './componentes/FilterableProductTable';
-import { PRODUCTS } from './constantes/PRODUCTS';
+import { useEffect, useState } from 'react';
+import FormularioProducto from './componentes/FormularioProducto';
 
 function App() {
+  const [products, setProducts] = useState([]);
+
+  async function refrescarDatos() {
+    const respuesta = await axios.get('http://localhost:3000/products');
+    setProducts(await respuesta.data);
+    console.log(products);
+  }
+
+  useEffect(() => {
+    refrescarDatos();
+  }, [products]);
+
   return (
-    <FilterableProductTable products={PRODUCTS} />
+    <>
+      <FormularioProducto onConfirmado={refrescarDatos} />
+      <FilterableProductTable products={products} />
+    </>
   );
 }
 

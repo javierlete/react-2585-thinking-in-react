@@ -19,7 +19,7 @@ export default function ProductTable({ products, filterText, inStockOnly }) {
                         (inStockOnly ? product.stocked : true))
                     .map(product => (<>
                         {category !== product.category &&
-                            <ProductCategoryRow category={category = product.category} />}
+                            <ProductCategoryRow key={category} category={category = product.category} />}
                         <ProductRow key={product.name} product={product} />
                     </>
                     ))}
