@@ -14,12 +14,12 @@ function App() {
 
   useEffect(() => {
     refrescarDatos();
-  }, [products]);
+  }, []);
 
   return (
     <>
       <FormularioProducto onConfirmado={refrescarDatos} />
-      <FilterableProductTable products={products} />
+      <FilterableProductTable products={products} onBorrar={refrescarDatos} />
     </>
   );
 }

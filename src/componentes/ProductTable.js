@@ -1,7 +1,7 @@
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
-export default function ProductTable({ products, filterText, inStockOnly }) {
+export default function ProductTable({ products, filterText, inStockOnly, onBorrar }) {
     let category = null;
 
     return (
@@ -20,7 +20,7 @@ export default function ProductTable({ products, filterText, inStockOnly }) {
                     .map(product => (<>
                         {category !== product.category &&
                             <ProductCategoryRow key={category} category={category = product.category} />}
-                        <ProductRow key={product.name} product={product} />
+                        <ProductRow onBorrar={onBorrar} key={product.name} product={product} />
                     </>
                     ))}
             </tbody>
