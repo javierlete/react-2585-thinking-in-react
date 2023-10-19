@@ -2,7 +2,7 @@ import { useState } from "react";
 import ProductTable from "./ProductTable";
 import SearchBar from "./SearchBar";
 
-export default function FilterableProductTable({ products, onBorrar }) {
+export default function FilterableProductTable({ products, onEditar, onBorrar }) {
     const [filterText, setFilterText] = useState('');
     const [inStockOnly, setInStockOnly] = useState(false);
 
@@ -17,6 +17,7 @@ export default function FilterableProductTable({ products, onBorrar }) {
                 products={products}
                 filterText={filterText}
                 inStockOnly={inStockOnly}
+                onEditar={onEditar}
                 onBorrar={onBorrar} />
         </div>
     );

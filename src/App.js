@@ -5,11 +5,18 @@ import FormularioProducto from './componentes/FormularioProducto';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [product, setProduct] = useState({
+    id: '',
+    name: '',
+    price: '',
+    category: '',
+    stocked: false,
+  });
 
   async function refrescarDatos() {
     const respuesta = await axios.get('http://localhost:3000/products');
     setProducts(await respuesta.data);
-    console.log(products);
+    // console.log(products);
   }
 
   useEffect(() => {
@@ -18,8 +25,8 @@ function App() {
 
   return (
     <>
-      <FormularioProducto onConfirmado={refrescarDatos} />
-      <FilterableProductTable products={products} onBorrar={refrescarDatos} />
+      <FormularioProducto onConfirmado={refrescarDatos} product={product} setProduct={setProduct} />
+      <FilterableProductTable products={products} onEditar={setProduct} onBorrar={refrescarDatos} />
     </>
   );
 }

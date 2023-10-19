@@ -7,6 +7,15 @@ export default function ProductRow({ product, onEditar, onBorrar }) {
         console.log(respuesta);
         onBorrar(respuesta);
     }
+    
+    async function editar(id) {
+        const respuesta = await axios.get(`http://localhost:3000/products/${id}`);
+        const product = await respuesta.data;
+        // console.log('editar', product);
+        onEditar(product);
+    }
+
+
 
     return (
         <tr>
@@ -17,7 +26,7 @@ export default function ProductRow({ product, onEditar, onBorrar }) {
                 {product.price}
             </td>
             <td>
-                <button>Editar</button>
+                <button onClick={() => editar(product.id)}>Editar</button>
                 <button onClick={() => borrar(product.id)}>Borrar</button>
             </td>
         </tr>
